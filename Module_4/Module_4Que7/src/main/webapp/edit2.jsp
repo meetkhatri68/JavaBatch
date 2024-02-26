@@ -1,0 +1,41 @@
+<%@page import="com.dao.Dao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <jsp:useBean id="m" class="com.model.Model"/> 
+	<jsp:setProperty property="*" name="m"/> 
+	
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+/* 
+ 	out.print(m.getId());
+	out.print(m.getFname());
+	out.print(m.getLname());
+	out.print(m.getPhone());
+	out.print(m.getEmail());
+	out.print(m.getGender()); 
+ */
+	 int status = Dao.updatedata(m);
+	
+	if(status>0)
+	{
+		response.sendRedirect("index.jsp");
+	}
+	else
+	{
+		out.print("Fail");
+	}  
+
+
+%>
+
+
+</body>
+</html>
